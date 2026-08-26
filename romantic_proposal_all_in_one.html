@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0512">
+  <title>A Special Question For Bella ❤️</title>
+  <meta name="description" content="A magical and romantic love story and proposal dedicated to Bella.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ALL-IN-ONE EMBEDDED STYLES */
+    :root {
+      --color-bg-dark: #0a0512;
+      --color-bg-deep: #160826;
+      --color-bg-card: rgba(255, 255, 255, 0.06);
+      --color-bg-card-hover: rgba(255, 255, 255, 0.12);
+      --color-card-border: rgba(255, 182, 193, 0.25);
+      --color-card-border-glow: rgba(255, 77, 121, 0.55);
+      --color-primary: #ff4d79;
+      --color-primary-glow: rgba(255, 77, 121, 0.65);
+      --color-secondary: #ff85a2;
+      --color-accent-gold: #ffd166;
+      --color-accent-gold-glow: rgba(255, 209, 102, 0.5);
+      --color-text-main: #fff0f5;
+      --color-text-muted: #d8b4c8;
+      --color-text-subtle: #a8859e;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-script: 'Dancing Script', cursive;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.5;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    /* Preloader */
+    .romantic-preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #1b0726 0%, #08020e 100%);
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      text-align: center;
+      transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s ease;
+      cursor: pointer;
+    }
+
+    .romantic-preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-heart-wrapper {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .heart-pulsar {
+      font-size: 3.2rem;
+      color: var(--color-primary);
+      filter: drop-shadow(0 0 20px rgba(255, 77, 121, 0.8));
+      animation: heartbeat 1.4s infinite ease-in-out;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.18); }
+      40% { transform: scale(0.95); }
+      60% { transform: scale(1.12); }
+    }
+
+    .loader-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px dashed rgba(255, 209, 102, 0.4);
+      border-radius: 50%;
+      animation: spin 8s linear infinite;
+    }
+
+    .loader-ring-outer {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      border: 1.5px solid rgba(255, 77, 121, 0.2);
+      border-top-color: var(--color-primary);
+      border-radius: 50%;
+      animation: spin-rev 4s linear infinite;
+    }
+
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes spin-rev { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+
+    .preloader-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .preloader-subtitle {
+      font-family: var(--font-script);
+      font-size: clamp(1.4rem, 4.5vw, 2rem);
+      color: var(--color-accent-gold);
+      margin-bottom: 20px;
+    }
+
+    .preloader-progress-track {
+      width: 220px;
+      max-width: 80vw;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      margin-bottom: 10px;
+    }
+
+    .preloader-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff4d79 0%, #ffd166 50%, #ff4d79 100%);
+      border-radius: 20px;
+      box-shadow: 0 0 15px var(--color-primary-glow);
+      transition: width 0.2s ease;
+    }
+
+    .preloader-percentage {
+      font-size: 0.85rem;
+      color: var(--color-text-subtle);
+      font-weight: 600;
+    }
+
+    .preloader-dynamic-msg {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      min-height: 24px;
+      margin-top: 15px;
+      transition: opacity 0.3s ease;
+    }
+
+    .preloader-enter-btn {
+      margin-top: 20px;
+      padding: 12px 34px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #c4184c 100%);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 25px var(--color-primary-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Ambient and Canvas */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 15%, rgba(255, 77, 121, 0.2) 0%, transparent 55%),
+        radial-gradient(circle at 85% 85%, rgba(138, 43, 226, 0.2) 0%, transparent 55%),
+        linear-gradient(180deg, #090310 0%, #150624 50%, #08020e 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 16px 40px 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Controls */
+    .top-nav-controls {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .icon-btn {
+      background: rgba(30, 10, 40, 0.85);
+      border: 1px solid var(--color-card-border);
+      backdrop-filter: blur(12px);
+      color: var(--color-text-main);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .icon-btn:active { transform: scale(0.92); }
+
+    /* Hero Envelope */
+    .hero-stage {
+      min-height: 85vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px 8px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-script);
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      color: var(--color-secondary);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 7vw, 3.8rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 20%, #ffd1dc 50%, #ff4d79 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .envelope-wrapper {
+      perspective: 1000px;
+      margin: 15px 0 25px;
+      cursor: pointer;
+    }
+
+    .love-envelope {
+      position: relative;
+      width: 280px;
+      height: 190px;
+      max-width: 82vw;
+      background: linear-gradient(135deg, #2b0b30 0%, #46113b 100%);
+      border: 1.5px solid rgba(255, 209, 102, 0.45);
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 77, 121, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.35s ease;
+    }
+
+    .wax-seal {
+      width: 65px;
+      height: 65px;
+      background: radial-gradient(circle, #ff3366 0%, #b3003b 80%, #66001f 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffd166;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255, 209, 102, 0.6);
+      animation: heartbeat 2s infinite ease-in-out;
+    }
+
+    .envelope-text {
+      margin-top: 12px;
+      font-family: var(--font-script);
+      font-size: 1.45rem;
+      color: var(--color-accent-gold);
+    }
+
+    .envelope-hint {
+      font-size: 0.78rem;
+      color: var(--color-text-subtle);
+      margin-top: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .open-btn-cta {
+      margin-top: 15px;
+      padding: 14px 34px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #c4184c 100%);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px var(--color-primary-glow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Story Stage */
+    .story-stage {
+      display: none;
+      width: 100%;
+    }
+
+    .story-stage.active {
+      display: block;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      text-align: center;
+      margin: 45px 0 25px;
+      padding: 0 8px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-script);
+      font-size: 1.25rem;
+      color: var(--color-accent-gold);
+      background: rgba(255, 209, 102, 0.12);
+      padding: 3px 15px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 209, 102, 0.3);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 5.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--color-text-main);
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .section-desc {
+      color: var(--color-text-muted);
+      font-size: clamp(0.9rem, 3.5vw, 1.05rem);
+      max-width: 540px;
+      margin: 6px auto 0;
+    }
+
+    /* Polaroids & Reasons */
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .polaroid-card {
+      background: #ffffff;
+      padding: 12px 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      color: #222;
+      position: relative;
+    }
+
+    .polaroid-img-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #111;
+      position: relative;
+    }
+
+    .polaroid-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .polaroid-date {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #ffd166;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .polaroid-caption {
+      font-family: var(--font-script);
+      font-size: 1.35rem;
+      color: #1a0826;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .polaroid-note {
+      font-size: 0.82rem;
+      color: #666;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .reason-box {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-card-border);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .reason-icon { font-size: 2rem; margin-bottom: 8px; display: inline-block; }
+    .reason-title { font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-text-main); margin-bottom: 5px; }
+    .reason-desc { font-size: 0.88rem; color: var(--color-text-muted); }
+
+    /* Proposal Section */
+    .proposal-section {
+      width: 100%;
+      margin: 40px 0 30px;
+      padding: 35px 14px;
+      background: radial-gradient(circle at center, rgba(82, 18, 70, 0.55) 0%, rgba(20, 5, 30, 0.95) 100%);
+      border: 1.5px solid var(--color-card-border-glow);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      position: relative;
+    }
+
+    .proposal-ring-icon { font-size: 3.2rem; margin-bottom: 10px; }
+    .proposal-question { font-family: var(--font-serif); font-size: clamp(1.8rem, 5.5vw, 3rem); font-weight: 700; margin-bottom: 10px; }
+    .proposal-sweet-message { font-family: var(--font-script); font-size: clamp(1.35rem, 4.2vw, 1.7rem); color: var(--color-secondary); max-width: 550px; margin: 0 auto 25px; }
+
+    .proposal-actions-arena {
+      position: relative;
+      min-height: 150px;
+      width: 100%;
+      max-width: 450px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn-yes {
+      padding: 15px 38px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #ff2d60 0%, #ff6b8b 50%, #ff2d60 100%);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 30px var(--color-primary-glow);
+      animation: heartbeat 2s infinite ease-in-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-no {
+      padding: 13px 30px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-text-subtle);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .no-quip-toast {
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 77, 121, 0.95);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .no-quip-toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+    /* Celebration Modal */
+    .celebration-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(8, 2, 14, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .celebration-modal.active { opacity: 1; pointer-events: auto; }
+
+    .celebration-card {
+      background: linear-gradient(145deg, rgba(46, 12, 53, 0.98) 0%, rgba(20, 5, 28, 0.98) 100%);
+      border: 1.5px solid var(--color-accent-gold);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.9);
+      border-radius: var(--radius-lg);
+      max-width: 500px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 30px 18px;
+      text-align: center;
+    }
+
+    .celebration-badge {
+      display: inline-block;
+      background: rgba(255, 209, 102, 0.15);
+      border: 1px solid var(--color-accent-gold);
+      color: var(--color-accent-gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+    }
+
+    .celebration-title { font-family: var(--font-serif); font-size: 2rem; color: #fff; margin-bottom: 8px; }
+    .celebration-names { font-family: var(--font-script); font-size: 2rem; color: var(--color-accent-gold); margin-bottom: 14px; }
+    .celebration-contract-text { font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 18px; padding: 14px; background: rgba(255,255,255,0.04); border-radius: var(--radius-md); border: 1px dashed rgba(255,209,102,0.3); }
+
+    .celebration-close-btn {
+      padding: 13px 32px;
+      background: linear-gradient(135deg, var(--color-accent-gold) 0%, #e6a817 100%);
+      color: #1a0520;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    /* Customizer Drawer */
+    .customizer-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 310px;
+      max-width: 88vw;
+      height: 100vh;
+      background: rgba(18, 5, 25, 0.98);
+      border-right: 1px solid var(--color-card-border-glow);
+      backdrop-filter: blur(25px);
+      z-index: 2000;
+      padding: 20px;
+      box-shadow: 20px 0 60px rgba(0, 0, 0, 0.9);
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+      overflow-y: auto;
+    }
+
+    .customizer-drawer.open { transform: translateX(0); }
+    .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+    .drawer-title { font-size: 1.1rem; color: var(--color-accent-gold); font-weight: bold; }
+    .drawer-close { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+    .form-group { margin-bottom: 14px; }
+    .form-label { display: block; font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 4px; }
+    .form-input, .form-select, .form-textarea { width: 100%; padding: 9px 12px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); color: #fff; font-size: 0.9rem; }
+    .save-custom-btn { width: 100%; padding: 12px; background: linear-gradient(135deg, var(--color-primary) 0%, #c4184c 100%); color: #fff; border: none; border-radius: var(--radius-sm); font-weight: 700; cursor: pointer; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader Screen (Tap anywhere to enter immediately) -->
+  <div id="romantic-preloader" class="romantic-preloader" title="Tap to enter">
+    <div class="loader-heart-wrapper">
+      <div class="loader-ring"></div>
+      <div class="loader-ring-outer"></div>
+      <div class="heart-pulsar">💖</div>
+    </div>
+
+    <h2 class="preloader-title">A Special Surprise</h2>
+    <p class="preloader-subtitle">Please wait a moment, <span class="display-her-name">Bella</span>... ❤️</p>
+    
+    <div class="preloader-progress-track">
+      <div id="preloader-progress-fill" class="preloader-progress-fill"></div>
+    </div>
+    
+    <span id="preloader-percentage" class="preloader-percentage">0%</span>
+    <p id="preloader-dynamic-msg" class="preloader-dynamic-msg">Gathering the brightest stars... ✨</p>
+
+    <button id="preloader-enter-btn" class="preloader-enter-btn">
+      <span>Step Inside Our Story</span>
+      <span>✨</span>
+    </button>
+  </div>
+
+  <div class="ambient-glow"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <nav class="top-nav-controls">
+    <button id="settings-toggle-btn" class="icon-btn" title="Customize Names & Details">✨</button>
+    <button id="music-toggle-btn" class="icon-btn music-btn" title="Toggle Romantic Melody">🎵</button>
+  </nav>
+
+  <main class="app-container">
+    <section id="hero-stage" class="hero-stage">
+      <p class="hero-subtitle">To the one who holds my heart...</p>
+      <h1 class="hero-title">A Love Story For <span class="display-her-name" style="color:#ffd166;">Bella</span></h1>
+      
+      <div id="envelope-wrapper" class="envelope-wrapper" title="Tap seal to open">
+        <div class="love-envelope">
+          <div class="wax-seal">❤️</div>
+          <p class="envelope-text">For <span class="display-her-name">Bella</span></p>
+          <span class="envelope-hint">Tap seal to open</span>
+        </div>
+      </div>
+
+      <button id="open-story-cta" class="open-btn-cta">
+        <span>Open Our Story</span>
+        <span>💌</span>
+      </button>
+    </section>
+
+    <section id="story-stage" class="story-stage">
+      <header class="section-header">
+        <span class="section-tag">Chapter I</span>
+        <h2 class="section-title">Our Precious Moments</h2>
+        <p class="section-desc">Every single moment spent with you is a memory I treasure forever.</p>
+      </header>
+
+      <div class="memory-grid">
+        <article class="polaroid-card">
+          <div class="polaroid-img-box">
+            <span class="polaroid-date">The Beginning ✨</span>
+            <img src="assets/memory1.jpg" alt="When We First Met" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=80'">
+          </div>
+          <h3 class="polaroid-caption">Where Magic Began</h3>
+          <p class="polaroid-note">The day you smiled, and my whole world lit up.</p>
+        </article>
+
+        <article class="polaroid-card">
+          <div class="polaroid-img-box">
+            <span class="polaroid-date">Our Starry Nights 🌌</span>
+            <img src="assets/memory2.jpg" alt="Starry Night Together" onerror="this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80'">
+          </div>
+          <h3 class="polaroid-caption">Under The Stars</h3>
+          <p class="polaroid-note">Talking for hours and wishing time would stand still.</p>
+        </article>
+
+        <article class="polaroid-card">
+          <div class="polaroid-img-box">
+            <span class="polaroid-date">Forever & Always 💍</span>
+            <img src="assets/memory3.jpg" alt="A Promise of Forever" onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80'">
+          </div>
+          <h3 class="polaroid-caption">My Favorite Place</h3>
+          <p class="polaroid-note">Right here by your side, holding your hand.</p>
+        </article>
+      </div>
+
+      <header class="section-header">
+        <span class="section-tag">Chapter II</span>
+        <h2 class="section-title">Why My Heart Chose You</h2>
+        <p class="section-desc">Just a few of the million reasons why you mean everything to me.</p>
+      </header>
+
+      <div class="reasons-grid">
+        <div class="reason-box">
+          <span class="reason-icon">✨</span>
+          <h3 class="reason-title">Your Radiant Smile</h3>
+          <p class="reason-desc">One smile from you can turn my hardest day into pure bliss.</p>
+        </div>
+
+        <div class="reason-box">
+          <span class="reason-icon">💖</span>
+          <h3 class="reason-title">Your Pure Heart</h3>
+          <p class="reason-desc">The endless kindness and warmth you share with everyone around you.</p>
+        </div>
+
+        <div class="reason-box">
+          <span class="reason-icon">🌟</span>
+          <h3 class="reason-title">You Make Me Better</h3>
+          <p class="reason-desc">With you, I feel inspired, safe, and truly myself.</p>
+        </div>
+
+        <div class="reason-box">
+          <span class="reason-icon">🌹</span>
+          <h3 class="reason-title">Our Little Laughs</h3>
+          <p class="reason-desc">Our goofy inside jokes and the sweet memories only we share.</p>
+        </div>
+      </div>
+
+      <section class="proposal-section" id="proposal-section">
+        <div class="proposal-ring-icon">💍</div>
+        <h2 class="proposal-question display-proposal-text">Will you be my girlfriend?</h2>
+        <p class="proposal-sweet-message display-custom-note">
+          "Every second with you feels like a dream come true. You make my world infinitely brighter and more beautiful, Bella."
+        </p>
+
+        <div class="proposal-actions-arena" id="proposal-arena">
+          <button id="btn-yes" class="btn-yes">
+            <span>YES!</span>
+            <span>❤️</span>
+          </button>
+
+          <button id="btn-no" class="btn-no">
+            <span>No</span>
+          </button>
+
+          <div id="no-quip-toast" class="no-quip-toast">Wait, reconsider! 🥺</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="celebration-modal" class="celebration-modal" role="dialog" aria-modal="true">
+    <div class="celebration-card">
+      <div class="celebration-badge">Official Bond of Love 💖</div>
+      <h2 class="celebration-title">SHE SAID YES! 🎉</h2>
+      <p id="cert-names" class="celebration-names">Bella & Yours Forever</p>
+
+      <div class="celebration-contract-text">
+        <p>From this day forward, every laugh will be sweeter, every adventure will be brighter, and my heart will always belong to you, Bella.</p>
+      </div>
+
+      <button id="celebration-close-btn" class="celebration-close-btn">
+        Forever & Always ❤️
+      </button>
+    </div>
+  </div>
+
+  <aside id="customizer-drawer" class="customizer-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">✨ Personalize Website</h3>
+      <button id="drawer-close-btn" class="drawer-close">&times;</button>
+    </div>
+
+    <form id="customizer-form">
+      <div class="form-group">
+        <label class="form-label" for="input-her-name">Her Name / Nickname</label>
+        <input type="text" id="input-her-name" class="form-input" placeholder="e.g. Bella">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-your-name">Your Name</label>
+        <input type="text" id="input-your-name" class="form-input" placeholder="e.g. Alexander">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-proposal-text">Proposal Question</label>
+        <select id="input-proposal-text" class="form-select">
+          <option value="Will you be my girlfriend?">Will you be my girlfriend?</option>
+          <option value="Will you marry me?">Will you marry me?</option>
+          <option value="Will you be mine forever?">Will you be mine forever?</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-custom-note">Love Message Note</label>
+        <textarea id="input-custom-note" rows="3" class="form-textarea" placeholder="Write something sweet from your heart..."></textarea>
+      </div>
+
+      <button type="submit" class="save-custom-btn">Save & Update Now ❤️</button>
+    </form>
+  </aside>
+
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/proposal.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

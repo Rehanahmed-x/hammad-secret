@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0512">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>A Special Question For Bella ❤️</title>
+  <meta name="description" content="A magical and romantic love story and proposal dedicated to Bella.">
+  
+  <!-- Google Fonts: Luxe Romantic Pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/effects.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       STAGE 0: CINEMATIC INTRO LOADING SCREEN
+       ========================================== -->
+  <div id="romantic-preloader" class="romantic-preloader" aria-label="Loading Experience">
+    <div class="loader-heart-wrapper">
+      <div class="loader-ring"></div>
+      <div class="loader-ring-outer"></div>
+      <div class="heart-pulsar">💖</div>
+    </div>
+
+    <h2 class="preloader-title">A Special Surprise</h2>
+    <p class="preloader-subtitle">Please wait a moment, <span class="display-her-name">Bella</span>... ❤️</p>
+    
+    <div class="preloader-progress-track">
+      <div id="preloader-progress-fill" class="preloader-progress-fill"></div>
+    </div>
+    
+    <span id="preloader-percentage" class="preloader-percentage">0%</span>
+    <p id="preloader-dynamic-msg" class="preloader-dynamic-msg">Gathering the brightest stars... ✨</p>
+
+    <button id="preloader-enter-btn" class="preloader-enter-btn">
+      <span>Step Inside Our Story</span>
+      <span>✨</span>
+    </button>
+  </div>
+
+  <!-- Ambient Glow & Dynamic Interactive Particle Canvas -->
+  <div class="ambient-glow"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Top Floating Controls (Safe Area Positioned) -->
+  <nav class="top-nav-controls" aria-label="Quick Controls">
+    <button id="settings-toggle-btn" class="icon-btn" title="Customize Names & Details" aria-label="Settings">✨</button>
+    <button id="music-toggle-btn" class="icon-btn music-btn" title="Toggle Romantic Melody" aria-label="Toggle Music">🎵</button>
+  </nav>
+
+  <!-- Main Application Wrapper -->
+  <main class="app-container">
+
+    <!-- ==========================================
+         STAGE 1: THE SEALED ENVELOPE (HERO)
+         ========================================== -->
+    <section id="hero-stage" class="hero-stage">
+      <p class="hero-subtitle">To the one who holds my heart...</p>
+      <h1 class="hero-title">A Love Story For <span class="display-her-name gold-gradient-text">Bella</span></h1>
+      
+      <div id="envelope-wrapper" class="envelope-wrapper" title="Click to Unseal Our Love Letter">
+        <div class="love-envelope">
+          <div class="wax-seal">❤️</div>
+          <p class="envelope-text">For <span class="display-her-name">Bella</span></p>
+          <span class="envelope-hint">Tap seal to open</span>
+        </div>
+      </div>
+
+      <button id="open-story-cta" class="open-btn-cta">
+        <span>Open Our Story</span>
+        <span>💌</span>
+      </button>
+    </section>
+
+    <!-- ==========================================
+         STAGE 2: OUR STORY & MEMORIES (REVEALED)
+         ========================================== -->
+    <section id="story-stage" class="story-stage">
+      
+      <!-- Chapter 1: Our Journey Timeline -->
+      <header class="section-header">
+        <span class="section-tag">Chapter I</span>
+        <h2 class="section-title">Our Precious Moments</h2>
+        <p class="section-desc">Every single moment spent with you is a memory I treasure forever.</p>
+      </header>
+
+      <div class="memory-grid">
+        <!-- Polaroid Card 1 -->
+        <article class="polaroid-card">
+          <div class="polaroid-img-box">
+            <span class="polaroid-date">The Beginning ✨</span>
+            <img src="assets/memory1.jpg" alt="When We First Met" loading="lazy">
+          </div>
+          <h3 class="polaroid-caption">Where Magic Began</h3>
+          <p class="polaroid-note">The day you smiled, and my whole world lit up.</p>
+        </article>
+
+        <!-- Polaroid Card 2 -->
+        <article class="polaroid-card">
+          <div class="polaroid-img-box">
+            <span class="polaroid-date">Our Starry Nights 🌌</span>
+            <img src="assets/memory2.jpg" alt="Starry Night Together" loading="lazy">
+          </div>
+          <h3 class="polaroid-caption">Under The Stars</h3>
+          <p class="polaroid-note">Talking for hours and wishing time would stand still.</p>
+        </article>
+
+        <!-- Polaroid Card 3 -->
+        <article class="polaroid-card">
+          <div class="polaroid-img-box">
+            <span class="polaroid-date">Forever & Always 💍</span>
+            <img src="assets/memory3.jpg" alt="A Promise of Forever" loading="lazy">
+          </div>
+          <h3 class="polaroid-caption">My Favorite Place</h3>
+          <p class="polaroid-note">Right here by your side, holding your hand.</p>
+        </article>
+      </div>
+
+      <!-- Chapter 2: Reasons Why I Love You -->
+      <header class="section-header">
+        <span class="section-tag">Chapter II</span>
+        <h2 class="section-title">Why My Heart Chose You</h2>
+        <p class="section-desc">Just a few of the million reasons why you mean everything to me.</p>
+      </header>
+
+      <div class="reasons-grid">
+        <div class="reason-box" tabindex="0">
+          <span class="reason-icon">✨</span>
+          <h3 class="reason-title">Your Radiant Smile</h3>
+          <p class="reason-desc">One smile from you can turn my hardest day into pure bliss.</p>
+        </div>
+
+        <div class="reason-box" tabindex="0">
+          <span class="reason-icon">💖</span>
+          <h3 class="reason-title">Your Pure Heart</h3>
+          <p class="reason-desc">The endless kindness and warmth you share with everyone around you.</p>
+        </div>
+
+        <div class="reason-box" tabindex="0">
+          <span class="reason-icon">🌟</span>
+          <h3 class="reason-title">You Make Me Better</h3>
+          <p class="reason-desc">With you, I feel inspired, safe, and truly myself.</p>
+        </div>
+
+        <div class="reason-box" tabindex="0">
+          <span class="reason-icon">🌹</span>
+          <h3 class="reason-title">Our Little Laughs</h3>
+          <p class="reason-desc">Our goofy inside jokes and the sweet memories only we share.</p>
+        </div>
+      </div>
+
+      <!-- Chapter 3: The Grand Proposal Question -->
+      <section class="proposal-section" id="proposal-section">
+        <div class="proposal-ring-icon">💍</div>
+        <h2 class="proposal-question display-proposal-text">Will you be my girlfriend?</h2>
+        <p class="proposal-sweet-message display-custom-note">
+          "Every second with you feels like a dream come true. You make my world infinitely brighter and more beautiful, Bella."
+        </p>
+
+        <!-- Interactive Proposal Arena -->
+        <div class="proposal-actions-arena" id="proposal-arena">
+          <button id="btn-yes" class="btn-yes">
+            <span>YES!</span>
+            <span>❤️</span>
+          </button>
+
+          <button id="btn-no" class="btn-no">
+            <span>No</span>
+          </button>
+
+          <!-- Playful Speech Bubble for No button -->
+          <div id="no-quip-toast" class="no-quip-toast">Wait, reconsider! 🥺</div>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       STAGE 4: GRAND CELEBRATION MODAL
+       ========================================== -->
+  <div id="celebration-modal" class="celebration-modal" role="dialog" aria-modal="true" aria-label="Celebration">
+    <div class="celebration-card">
+      <div class="celebration-badge">Official Bond of Love 💖</div>
+      <h2 class="celebration-title">SHE SAID YES! 🎉</h2>
+      <p id="cert-names" class="celebration-names">Bella & Yours Forever</p>
+
+      <div class="celebration-contract-text">
+        <p>From this day forward, every laugh will be sweeter, every adventure will be brighter, and my heart will always belong to you, Bella.</p>
+      </div>
+
+      <!-- Live Love Timer -->
+      <div class="love-counter-box">
+        <p class="love-counter-title">Our Love Journey Counter</p>
+        <div class="love-counter-units">
+          <div class="counter-unit">
+            <span id="count-days" class="counter-number">00</span>
+            <span class="counter-label">Days</span>
+          </div>
+          <div class="counter-unit">
+            <span id="count-hours" class="counter-number">00</span>
+            <span class="counter-label">Hours</span>
+          </div>
+          <div class="counter-unit">
+            <span id="count-mins" class="counter-number">00</span>
+            <span class="counter-label">Mins</span>
+          </div>
+          <div class="counter-unit">
+            <span id="count-secs" class="counter-number">00</span>
+            <span class="counter-label">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="celebration-close-btn" class="celebration-close-btn">
+        Forever & Always ❤️
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       STAGE 5: CUSTOMIZER DRAWER (FOR USER)
+       ========================================== -->
+  <aside id="customizer-drawer" class="customizer-drawer" aria-label="Customization Drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">✨ Personalize Website</h3>
+      <button id="drawer-close-btn" class="drawer-close" aria-label="Close Drawer">&times;</button>
+    </div>
+
+    <form id="customizer-form">
+      <div class="form-group">
+        <label class="form-label" for="input-her-name">Her Name / Nickname</label>
+        <input type="text" id="input-her-name" class="form-input" placeholder="e.g. Bella">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-your-name">Your Name</label>
+        <input type="text" id="input-your-name" class="form-input" placeholder="e.g. Alexander">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-proposal-text">Proposal Question</label>
+        <select id="input-proposal-text" class="form-select">
+          <option value="Will you be my girlfriend?">Will you be my girlfriend?</option>
+          <option value="Will you marry me?">Will you marry me?</option>
+          <option value="Will you be mine forever?">Will you be mine forever?</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-start-date">Anniversary / Date Met</label>
+        <input type="date" id="input-start-date" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="input-custom-note">Love Message Note</label>
+        <textarea id="input-custom-note" rows="3" class="form-textarea" placeholder="Write something sweet from your heart..."></textarea>
+      </div>
+
+      <button type="submit" class="save-custom-btn">Save & Update Now ❤️</button>
+    </form>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/proposal.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

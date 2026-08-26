@@ -1,0 +1,175 @@
+/* ==========================================================================
+   ROMANTIC PRELOADER & INTRO SCREEN ANIMATIONS
+   ========================================================================== */
+
+.romantic-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #1b0726 0%, #08020e 100%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+  transition: opacity 1s cubic-bezier(0.65, 0, 0.35, 1), visibility 1s ease;
+}
+
+.romantic-preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Pulsing Heart Orbit Loader */
+.loader-heart-wrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.heart-pulsar {
+  font-size: 3.5rem;
+  color: var(--color-primary);
+  filter: drop-shadow(0 0 25px rgba(255, 77, 121, 0.8));
+  animation: preloader-heartbeat 1.4s infinite ease-in-out;
+  z-index: 2;
+}
+
+@keyframes preloader-heartbeat {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(255, 77, 121, 0.7)); }
+  25% { transform: scale(1.18); filter: drop-shadow(0 0 35px rgba(255, 77, 121, 1)); }
+  40% { transform: scale(0.95); }
+  60% { transform: scale(1.12); }
+}
+
+.loader-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(255, 209, 102, 0.4);
+  border-radius: 50%;
+  animation: spin-ring 8s linear infinite;
+}
+
+.loader-ring-outer {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  border: 1.5px solid rgba(255, 77, 121, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin-ring-reverse 4s linear infinite;
+}
+
+@keyframes spin-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-ring-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Preloader Text Typography */
+.preloader-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.preloader-subtitle {
+  font-family: var(--font-script);
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+  color: var(--color-accent-gold);
+  margin-bottom: 24px;
+  text-shadow: 0 0 12px rgba(255, 209, 102, 0.4);
+}
+
+.preloader-dynamic-msg {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  min-height: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+}
+
+/* Glowing Progress Bar */
+.preloader-progress-track {
+  width: 240px;
+  max-width: 80vw;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 209, 102, 0.2);
+  margin-bottom: 12px;
+}
+
+.preloader-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff4d79 0%, #ffd166 50%, #ff4d79 100%);
+  background-size: 200% auto;
+  border-radius: 20px;
+  box-shadow: 0 0 15px var(--color-primary-glow);
+  transition: width 0.3s ease;
+  animation: shimmer-gold 2s linear infinite;
+}
+
+.preloader-percentage {
+  font-size: 0.85rem;
+  color: var(--color-text-subtle);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Enter Button (Reveals at 100%) */
+.preloader-enter-btn {
+  margin-top: 24px;
+  padding: 14px 38px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #c4184c 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 30px var(--color-primary-glow);
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: pulse-music 2s infinite ease-in-out;
+}
+
+.preloader-enter-btn.ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.preloader-enter-btn:active {
+  transform: scale(0.95);
+}

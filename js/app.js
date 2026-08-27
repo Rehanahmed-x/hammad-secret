@@ -1,13 +1,19 @@
 /* ==========================================================================
-   APP CONTROLLER & INTRO LOADING CONTROLLER (With Bella Default)
+   APP CONTROLLER & INTRO LOADING CONTROLLER (With Pakeeza & Rehan)
    ========================================================================== */
 
+function getFourMonthsAgoDate() {
+  const d = new Date();
+  d.setMonth(d.getMonth() - 4);
+  return d.toISOString().split('T')[0];
+}
+
 const DEFAULT_CONFIG = {
-  herName: "Bella",
-  yourName: "Yours Forever",
-  proposalType: "Will you be my girlfriend?",
-  startDate: "2024-01-01",
-  customNote: "Every second with you feels like a dream come true. You make my world infinitely brighter and more beautiful, Bella."
+  herName: "Pakeeza",
+  yourName: "Rehan",
+  proposalType: "Pakeeza, Will you be mine forever?",
+  startDate: getFourMonthsAgoDate(),
+  customNote: "4 beautiful months together, and every second with you feels like a dream come true. You make my world infinitely brighter and more beautiful, Pakeeza."
 };
 
 class AppController {
@@ -25,7 +31,13 @@ class AppController {
       const saved = localStorage.getItem('proposal_config');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.herName === "My Love") parsed.herName = "Bella";
+        if (parsed.herName === "My Love" || parsed.herName === "Bella" || parsed.herName === "Apkeeza") parsed.herName = "Pakeeza";
+        if (parsed.yourName === "Yours Forever" || parsed.yourName === "Alexander") parsed.yourName = "Rehan";
+        if (!parsed.proposalType || parsed.proposalType === "Will you be my girlfriend?") parsed.proposalType = "Pakeeza, Will you be mine forever?";
+        if (!parsed.startDate || parsed.startDate === "2024-01-01") parsed.startDate = getFourMonthsAgoDate();
+        if (parsed.customNote && (parsed.customNote.includes("Bella") || parsed.customNote.includes("Apkeeza"))) {
+          parsed.customNote = parsed.customNote.replace(/Bella|Apkeeza/g, "Pakeeza");
+        }
         return { ...DEFAULT_CONFIG, ...parsed };
       }
       return { ...DEFAULT_CONFIG };
@@ -149,11 +161,11 @@ class AppController {
     if (!this.preloader) return;
 
     const messages = [
-      "Please wait a moment, Bella... ❤️",
+      "Please wait a moment, Pakeeza... ❤️",
       "Gathering the brightest stars... ✨",
       "Collecting our precious memories... 📸",
       "Crafting something special from the heart... 🌹",
-      "Everything is ready for you, Bella... 💖"
+      "Everything is ready for you, Pakeeza... 💖"
     ];
 
     let progress = 0;
@@ -242,15 +254,10 @@ class AppController {
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      const elDays = document.getElementById('count-days');
-      const elHours = document.getElementById('count-hours');
-      const elMins = document.getElementById('count-mins');
-      const elSecs = document.getElementById('count-secs');
-
-      if (elDays) elDays.innerText = String(days).padStart(2, '0');
-      if (elHours) elHours.innerText = String(hours).padStart(2, '0');
-      if (elMins) elMins.innerText = String(minutes).padStart(2, '0');
-      if (elSecs) elSecs.innerText = String(seconds).padStart(2, '0');
+      document.querySelectorAll('.count-days, #count-days').forEach(el => el.innerText = String(days).padStart(2, '0'));
+      document.querySelectorAll('.count-hours, #count-hours').forEach(el => el.innerText = String(hours).padStart(2, '0'));
+      document.querySelectorAll('.count-mins, #count-mins').forEach(el => el.innerText = String(minutes).padStart(2, '0'));
+      document.querySelectorAll('.count-secs, #count-secs').forEach(el => el.innerText = String(seconds).padStart(2, '0'));
     };
 
     update();

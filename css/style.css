@@ -458,6 +458,22 @@ body {
   50% { transform: translateY(-8px) rotate(6deg); }
 }
 
+.proposal-dedication-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 77, 121, 0.15);
+  border: 1px solid rgba(255, 77, 121, 0.45);
+  color: var(--color-accent-gold);
+  font-size: clamp(0.85rem, 2.8vw, 1.05rem);
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 20px rgba(255, 77, 121, 0.25);
+  backdrop-filter: blur(10px);
+}
+
 .proposal-question {
   font-family: var(--font-serif);
   font-size: clamp(1.8rem, 5.5vw, 3rem);
@@ -477,6 +493,48 @@ body {
   margin: 0 auto 25px;
   text-shadow: 0 0 12px rgba(255, 133, 162, 0.4);
   line-height: 1.35;
+}
+
+/* 4-Month Love Milestone Banner */
+.love-milestone-banner {
+  background: linear-gradient(135deg, rgba(255, 77, 121, 0.12) 0%, rgba(30, 8, 45, 0.85) 100%);
+  border: 1.5px solid rgba(255, 209, 102, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 24px 18px;
+  margin: 30px 0;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 77, 121, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.milestone-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 209, 102, 0.18);
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.milestone-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 3.8vw, 1.6rem);
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.milestone-subtext {
+  font-family: var(--font-script);
+  font-size: clamp(1.15rem, 3.5vw, 1.45rem);
+  color: var(--color-secondary);
+  margin-top: 14px;
 }
 
 /* Proposal Arena */
